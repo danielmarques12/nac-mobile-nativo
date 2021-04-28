@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Memory game</string>
+    <string name="app_version">1.0.0</string>
+    <string name="timer">TIMER: </string>
+    <string name="app_title">Memory Game</string>
+    <string name="question_mark_description">Question Mark Card</string>
+    <string name="rank_star_description">Star icon - Related to the game rank</string>
+    <string name="game_splash_description">Game Splash</string>
+    <string name="play_button">Play</string>
+    <string name="score_text">SCORE</string>
+    <string name="ok">OK</string>
+</resources>
