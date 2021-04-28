@@ -30,6 +30,7 @@ class ASSharedPreferences(private val context: Context) {
         val score = getScore()
         val editor = sharedPref.edit()
 
+
         if (score == 0) {
             editor.putInt(playerScore, gameScore)
             editor.putInt(playerStars, gameStars)

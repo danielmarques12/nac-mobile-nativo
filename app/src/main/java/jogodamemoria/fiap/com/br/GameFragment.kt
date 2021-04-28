@@ -40,14 +40,13 @@ class GameFragment : Fragment() {
 
     override fun onDetach() {
         super.onDetach()
-        calculateScore(elapsedTime, endGameStars)
-        Log.d("elapsed", elapsedTime.toString())
+        calculateScore()
         handler.removeCallbacksAndMessages(null)
     }
 
-    private fun calculateScore(seconds: Int, stars: Int) {
-        score = seconds * stars
-        sharedPrefs.updateTopScore(score, stars, seconds)
+    private fun calculateScore() {
+        score = elapsedTime
+        sharedPrefs.updateTopScore(score, endGameStars, elapsedTime)
     }
 
     override fun onCreateView(
