@@ -7,6 +7,6 @@
     <string name="rank_star_description">Star icon - Related to the game rank</string>
     <string name="game_splash_description">Game Splash</string>
     <string name="play_button">Play</string>
-    <string name="score_text">SCORE</string>
+    <string name="score_text">Best Score</string>
     <string name="ok">OK</string>
 </resources>

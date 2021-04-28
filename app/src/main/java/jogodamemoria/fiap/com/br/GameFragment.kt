@@ -13,7 +13,7 @@ import android.view.ViewGroup
 import android.widget.Chronometer
 import android.widget.ImageButton
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import jogodamemoria.fiap.com.br.data.MemoryCard
 import jogodamemoria.fiap.com.br.databinding.FragmentGameBinding
 import jogodamemoria.fiap.com.br.R.drawable.*
@@ -23,6 +23,7 @@ class GameFragment : Fragment() {
 
     private var endGameStars: Int = 5
     private var elapsedTime: Int = 0
+    private var score: Int = 0
     private lateinit var chronometer: Chronometer
     private lateinit var handler: Handler
     private lateinit var sharedPrefs: ASSharedPreferences
@@ -45,7 +46,7 @@ class GameFragment : Fragment() {
     }
 
     private fun calculateScore(seconds: Int, stars: Int) {
-        val score = seconds * stars
+        score = seconds * stars
         sharedPrefs.updateTopScore(score, stars, seconds)
     }
 
@@ -144,7 +145,12 @@ class GameFragment : Fragment() {
             cards[position2].isMatched = true
 
             if (gameFinished()) {
-                view?.findNavController()?.navigate(R.id.action_gameFragment_to_rankingFragment)
+                val action = GameFragmentDirections.actionGameFragmentToResultFragment(
+                        seconds = elapsedTime.toString(),
+                        score = score,
+                        stars = endGameStars
+                )
+                findNavController().navigate(action)
             }
         }
     }

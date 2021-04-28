@@ -35,7 +35,7 @@
         android:label="fragment_game"
         tools:layout="@layout/fragment_game" >
         <action
-            android:id="@+id/action_gameFragment_to_rankingFragment"
+            android:id="@+id/action_gameFragment_to_resultFragment"
             app:destination="@id/resultFragment"
             app:popUpTo="@+id/nav_graph"
             app:popUpToInclusive="true"/>
@@ -45,6 +45,18 @@
         android:name="jogodamemoria.fiap.com.br.ResultFragment"
         android:label="fragment_ranking"
         tools:layout="@layout/fragment_result">
+        <argument
+            android:name="seconds"
+            app:argType="string"
+            android:defaultValue="Seconds" />
+        <argument
+            android:name="score"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="stars"
+            app:argType="integer"
+            android:defaultValue="0" />
         <action
             android:id="@+id/action_resultFragment_to_gameFragment"
             app:destination="@id/gameFragment"

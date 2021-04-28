@@ -35,5 +35,41 @@ class HomeFragment : Fragment() {
             val action = HomeFragmentDirections.actionHomeFragmentToGameFragment()
             view.findNavController().navigate(action)
         }
+        renderBestScore()
+    }
+
+    private fun renderBestScore() {
+        val seconds = sharedPrefs.getSeconds().toString()
+        val stars = sharedPrefs.getStars()
+        bindings.setSeconds(seconds)
+        renderStars(stars)
+    }
+
+    private fun renderStars(stars: Int) {
+        when (stars) {
+            1 -> bindings.star.visibility = View.VISIBLE
+            2 -> {
+                bindings.star.visibility = View.VISIBLE
+                bindings.star2.visibility = View.VISIBLE
+            }
+            3 -> {
+                bindings.star.visibility = View.VISIBLE
+                bindings.star2.visibility = View.VISIBLE
+                bindings.star3.visibility = View.VISIBLE
+            }
+            4 -> {
+                bindings.star.visibility = View.VISIBLE
+                bindings.star2.visibility = View.VISIBLE
+                bindings.star3.visibility = View.VISIBLE
+                bindings.star4.visibility = View.VISIBLE
+            }
+            5 -> {
+                bindings.star.visibility = View.VISIBLE
+                bindings.star2.visibility = View.VISIBLE
+                bindings.star3.visibility = View.VISIBLE
+                bindings.star4.visibility = View.VISIBLE
+                bindings.star5.visibility = View.VISIBLE
+            }
+        }
     }
 }

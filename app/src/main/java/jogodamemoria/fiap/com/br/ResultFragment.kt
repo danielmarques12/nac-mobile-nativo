@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import jogodamemoria.fiap.com.br.data.ASSharedPreferences
 import jogodamemoria.fiap.com.br.databinding.FragmentResultBinding
 
@@ -17,11 +18,7 @@ class ResultFragment : Fragment() {
 
     private lateinit var sharedPrefs: ASSharedPreferences
     private lateinit var bindings: FragmentResultBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+    private val args: ResultFragmentArgs by navArgs()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -39,15 +36,53 @@ class ResultFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        renderResults()
         bindings.ok.setOnClickListener {
             view.findNavController().navigate(R.id.action_resultFragment_to_gameFragment)
         }
+    }
 
-        val bestScore = sharedPrefs.getScore().toString()
-        val seconds = sharedPrefs.getSeconds().toString()
-        val stars = sharedPrefs.getStars().toString()
+    private fun renderResults() {
+        if (args.score >= sharedPrefs.getScore()) {
+            bindings.setSeconds(args.seconds)
+            bindings.setScoreText("Score")
+            renderStars(args.stars)
+        }
+        else {
+            val seconds = sharedPrefs.getSeconds().toString()
+            val stars = sharedPrefs.getStars()
+            bindings.setSeconds(seconds)
+            bindings.setScoreText("Best score")
+            renderStars(stars)
+        }
+    }
 
-        bindings.setSeconds(seconds)
+    private fun renderStars(stars: Int) {
+        when (stars) {
+            1 -> bindings.star.visibility = View.VISIBLE
+            2 -> {
+                bindings.star.visibility = View.VISIBLE
+                bindings.star2.visibility = View.VISIBLE
+            }
+            3 -> {
+                bindings.star.visibility = View.VISIBLE
+                bindings.star2.visibility = View.VISIBLE
+                bindings.star3.visibility = View.VISIBLE
+            }
+            4 -> {
+                bindings.star.visibility = View.VISIBLE
+                bindings.star2.visibility = View.VISIBLE
+                bindings.star3.visibility = View.VISIBLE
+                bindings.star4.visibility = View.VISIBLE
+            }
+            5 -> {
+                bindings.star.visibility = View.VISIBLE
+                bindings.star2.visibility = View.VISIBLE
+                bindings.star3.visibility = View.VISIBLE
+                bindings.star4.visibility = View.VISIBLE
+                bindings.star5.visibility = View.VISIBLE
+            }
+        }
     }
 
     override fun onDetach() {

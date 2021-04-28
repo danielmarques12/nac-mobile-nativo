@@ -5,6 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".HomeFragment">
 
+    <data>
+        <variable name="seconds" type="String" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -40,24 +44,106 @@
             android:text="@string/score_text"
             android:textAlignment="center"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/best_score"
+            app:layout_constraintBottom_toTopOf="@+id/seconds"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/top_divider" />
 
         <TextView
-            android:id="@+id/best_score"
+            android:id="@+id/seconds"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/default_margin"
             android:gravity="center_horizontal"
-            android:text="no matches"
+            android:text="@{seconds + ` seconds`}"
             android:textAlignment="center"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/next"
+            app:layout_constraintBottom_toTopOf="@+id/star3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/score_text" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/star"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@string/rank_star_description"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/next"
+            app:layout_constraintEnd_toStartOf="@+id/star2"
+            app:layout_constraintTop_toBottomOf="@+id/score_text"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.512"
+            app:srcCompat="@drawable/star" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/star2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="104dp"
+            android:layout_marginLeft="104dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@string/rank_star_description"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/next"
+            app:layout_constraintEnd_toStartOf="@+id/star3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/score_text"
+            app:layout_constraintVertical_bias="0.512"
+            app:srcCompat="@drawable/star" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/star3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="164dp"
+            android:layout_marginLeft="164dp"
+            android:contentDescription="@string/rank_star_description"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/next"
+            app:layout_constraintEnd_toStartOf="@+id/star4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/score_text"
+            app:layout_constraintVertical_bias="0.512"
+            app:srcCompat="@drawable/star" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/star4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="224dp"
+            android:layout_marginLeft="224dp"
+            android:contentDescription="@string/rank_star_description"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/next"
+            app:layout_constraintEnd_toStartOf="@+id/star5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/score_text"
+            app:layout_constraintVertical_bias="0.512"
+            app:srcCompat="@drawable/star" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/star5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/rank_star_description"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.822"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/score_text"
+            app:layout_constraintVertical_bias="0.512"
+            app:srcCompat="@drawable/star" />
 
         <Button
             android:id="@+id/next"

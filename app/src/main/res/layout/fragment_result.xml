@@ -7,6 +7,7 @@
 
     <data>
         <variable name="seconds" type="String" />
+        <variable name="scoreText" type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,11 +19,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/default_margin"
-            android:text="@string/score_text"
+            android:text="@{scoreText}"
             android:textSize="24sp"
             android:textColor="@color/black"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/best_score"
+            app:layout_constraintBottom_toTopOf="@+id/seconds"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +31,7 @@
             app:layout_constraintVertical_bias="0.195" />
 
         <TextView
-            android:id="@+id/best_score"
+            android:id="@+id/seconds"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{seconds + ` seconds`}"
@@ -46,18 +47,99 @@
 
         <Button
             android:id="@+id/ok"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:text="@string/ok"
-            android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.517"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/best_score"
+            app:layout_constraintTop_toBottomOf="@+id/seconds"
             app:layout_constraintVertical_bias="0.499" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/star"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@string/rank_star_description"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/star2"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.512"
+            app:srcCompat="@drawable/star" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/star2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="104dp"
+            android:layout_marginLeft="104dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@string/rank_star_description"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/star3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.512"
+            app:srcCompat="@drawable/star" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/star3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="164dp"
+            android:layout_marginLeft="164dp"
+            android:contentDescription="@string/rank_star_description"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/star4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.512"
+            app:srcCompat="@drawable/star" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/star4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="224dp"
+            android:layout_marginLeft="224dp"
+            android:contentDescription="@string/rank_star_description"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/star5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.512"
+            app:srcCompat="@drawable/star" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/star5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/rank_star_description"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.822"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.512"
+            app:srcCompat="@drawable/star" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
